@@ -77,7 +77,7 @@
             }
 
             var cell = row.insertCell(-1);
-            cell.innerHTML = "<img src='https://www.flagsapi.com/" + [city].code.toUpperCase() + "/shiny/64.png'><br><span class='city-name'>" + city + "</span><br>" + cityDate.getUTCHours().toString().padStart(2, '0') + ":" + cityDate.getUTCMinutes().toString().padStart(2, '0') + ":" + cityDate.getUTCSeconds().toString().padStart(2, '0');
+            cell.innerHTML = "<img src='https://www.flagsapi.com/" + (city).code.toUpperCase() + "/shiny/64.png'><br><span class='city-name'>" + city + "</span><br>" + cityDate.getUTCHours().toString().padStart(2, '0') + ":" + cityDate.getUTCMinutes().toString().padStart(2, '0') + ":" + cityDate.getUTCSeconds().toString().padStart(2, '0');
             cityIndex++;
         }
     </script>
