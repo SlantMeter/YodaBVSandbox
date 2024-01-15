@@ -41,7 +41,7 @@
             "Addis Ababa": { offset: 3, code: 'et' }, // Ethiopia
             "Hanoi": { offset: 7, code: 'vn' }, // Vietnam
             "Ankara": { offset: 3, code: 'tr' }, // Turkey
-            "Brasília": { offset: -3, code: 'br' }, // Brazil
+            cell.innerHTML = "<img src='https://www.countryflags.io/" + cities[city].code + "/shiny/64.png'><br><span class='city-name'>" + city.toUpperCase() + "</span><br>" + cityDate.getUTCHours().toString().padStart(2, '0') + ":" + cityDate.getUTCMinutes().toString().padStart(2, '0') + ":" + cityDate.getUTCSeconds().toString().padStart(2, '0');cell.innerHTML = "<img src='https://www.countryflags.io/" + cities[city].code + "/shiny/64.png'><br><span class='city-name'>" + city.toUpperCase() + "</span><br>" + cityDate.getUTCHours().toString().padStart(2, '0') + ":" + cityDate.getUTCMinutes().toString().padStart(2, '0') + ":" + cityDate.getUTCSeconds().toString().padStart(2, '0');"Brasília": { offset: -3, code: 'br' }, // Brazil
             "Kinshasa": { offset: 1, code: 'cd' }, // DR Congo
             "Bangkok": { offset: 7, code: 'th' }, // Thailand
             "Naypyidaw": { offset: 6.5, code: 'mm' }, // Myanmar
@@ -77,8 +77,7 @@
             }
 
             var cell = row.insertCell(-1);
-            cell.innerHTML = "<img src='https://flagsapi.com/" + cities[city].code + "/shiny/64.png'><br><span class='city-name'>" + city + "</span><br>" + cityDate.getUTCHours().toString().padStart(2, '0') + ":" + cityDate.getUTCMinutes().toString().padStart(2, '0') + ":" + cityDate.getUTCSeconds().toString().padStart(2, '0');
-
+            cell.innerHTML = "<img src='https://www.countryflags.io/" + toUpperCase([city].code) + "/shiny/64.png'><br><span class='city-name'>" + city + "</span><br>" + cityDate.getUTCHours().toString().padStart(2, '0') + ":" + cityDate.getUTCMinutes().toString().padStart(2, '0') + ":" + cityDate.getUTCSeconds().toString().padStart(2, '0');
             cityIndex++;
         }
     </script>
