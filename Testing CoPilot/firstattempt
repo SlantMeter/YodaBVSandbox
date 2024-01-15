@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>World Clock</title>
+    <style>
+        #cityTimes {
+            width: 100%;
+        }
+        #cityTimes td {
+            width: 20%;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .city-name {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Current Times in Major Cities</h1>
+    <table id="cityTimes">
+        <!-- Table cells will be populated by JavaScript -->
+    </table>
+
+    <script>
+        var cities = {
+            "Beijing": { offset: 8, code: 'cn' }, // China
+            "New Delhi": { offset: 5.5, code: 'in' }, // India
+            "Jakarta": { offset: 7, code: 'id' }, // Indonesia
+            "Islamabad": { offset: 5, code: 'pk' }, // Pakistan
+            "Dhaka": { offset: 6, code: 'bd' }, // Bangladesh
+            "Tokyo": { offset: 9, code: 'jp' }, // Japan
+            "Moscow": { offset: 3, code: 'ru' }, // Russia
+            "Manila": { offset: 8, code: 'ph' }, // Philippines
+            "Tehran": { offset: 3.5, code: 'ir' }, // Iran
+            "Cairo": { offset: 2, code: 'eg' }, // Egypt
+            "Mexico City": { offset: -6, code: 'mx' }, // Mexico
+            "Addis Ababa": { offset: 3, code: 'et' }, // Ethiopia
+            "Hanoi": { offset: 7, code: 'vn' }, // Vietnam
+            "Ankara": { offset: 3, code: 'tr' }, // Turkey
+            "Brasília": { offset: -3, code: 'br' }, // Brazil
+            "Kinshasa": { offset: 1, code: 'cd' }, // DR Congo
+            "Bangkok": { offset: 7, code: 'th' }, // Thailand
+            "Naypyidaw": { offset: 6.5, code: 'mm' }, // Myanmar
+            "Kabul": { offset: 4.5, code: 'af' }, // Afghanistan
+            "Kiev": { offset: 2, code: 'ua' }, // Ukraine
+            "Santiago": { offset: -4, code: 'cl' }, // Chile
+            "Lima": { offset: -5, code: 'pe' }, // Peru
+            "Mogadishu": { offset: 3, code: 'so' }, // Somalia
+            "Luanda": { offset: 1, code: 'ao' }, // Angola
+            "Baghdad": { offset: 3, code: 'iq' }, // Iraq
+            "Buenos Aires": { offset: -3, code: 'ar' }, // Argentina
+            "Yerevan": { offset: 4, code: 'am' }, // Armenia
+            "Algiers": { offset: 1, code: 'dz' }, // Algeria
+            "Kathmandu": { offset: 5.75, code: 'np' }, // Nepal
+            "Kuala Lumpur": { offset: 8, code: 'my' }, // Malaysia
+            "Havana": { offset: -5, code: 'cu' }, // Cuba
+            "Bogota": { offset: -5, code: 'co' }, // Colombia
+            "Warsaw": { offset: 2, code: 'pl' }, // Poland
+            "Riyadh": { offset: 3, code: 'sa' }, // Saudi Arabia
+        };
+
+        var now = new Date();
+        var table = document.getElementById("cityTimes");
+        var row;
+        var cityIndex = 0;
+
+        for (var city in cities) {
+            var cityDate = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+            cityDate.setHours(cityDate.getUTCHours() + cities[city].offset);
+
+            if (cityIndex % 5 === 0) {
+                row = table.insertRow(-1);
+            }
+
+            var cell = row.insertCell(-1);
+            cell.innerHTML = "<img src='https://flagsapi.com/" + cities[city].code + "/flat/64.png'><br><span class='city-name'>" + city + "</span><br>" + cityDate.getUTCHours().toString().padStart(2, '0') + ":" + cityDate.getUTCMinutes().toString().padStart(2, '0') + ":" + cityDate.getUTCSeconds().toString().padStart(2, '0');
+
+            cityIndex++;
+        }
+    </script>
+</body>
+</html>
